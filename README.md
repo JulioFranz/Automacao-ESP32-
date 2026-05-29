@@ -1,6 +1,6 @@
 # Automação Residencial com ESP32
 
-Trabalho prático da disciplina de sistemas embarcados. A ideia é simular uma casa com sensores e atuadores, tudo se comunicando via MQTT e com um painel de controle no Node-RED.
+Trabalho prático da disciplina de IOT. A ideia é simular uma casa com sensores e atuadores, tudo se comunicando via MQTT e com um painel de controle no Node-RED.
 
 ---
 
