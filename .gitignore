@@ -1,0 +1,13 @@
+# Ignorar binários de firmware do MicroPython
+*.bin
+
+# Pastas e caches do sistema/IDE
+.vscode/
+__pycache__/
+*.pyc
+.DS_Store
+
+.claude
+/.claude
+
+node_modules/

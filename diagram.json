@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "author": "Wokwi",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+
+    { "type": "wokwi-dht22", "id": "dht1", "top": -100, "left": 290, "attrs": {} },
+    { "type": "wokwi-photoresistor-sensor", "id": "ldr1", "top": 30, "left": 290, "attrs": {} },
+    { "type": "wokwi-gas-sensor", "id": "gas1", "top": 160, "left": 290, "attrs": {} },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": 290, "left": 290, "attrs": {} },
+
+    { "type": "wokwi-led", "id": "led_ac",      "top": -100, "left": -80, "attrs": { "color": "blue" } },
+    { "type": "wokwi-led", "id": "led_quintal", "top":   30, "left": -80, "attrs": { "color": "yellow" } },
+    { "type": "wokwi-led", "id": "led_gas",     "top":  160, "left": -80, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "led_garagem", "top":  290, "left": -80, "attrs": { "color": "white" } },
+
+    { "type": "wokwi-ssd1306", "id": "oled", "top": 420, "left": 20, "attrs": { "width": "128", "height": "64" } }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "dht1:VCC", "esp:3V3", "red", [] ],
+    [ "dht1:GND", "esp:GND.1", "black", [] ],
+    [ "dht1:SDA", "esp:4", "green", [] ],
+
+    [ "ldr1:VCC", "esp:3V3", "red", [] ],
+    [ "ldr1:GND", "esp:GND.1", "black", [] ],
+    [ "ldr1:AO", "esp:34", "orange", [] ],
+
+    [ "gas1:VCC", "esp:3V3", "red", [] ],
+    [ "gas1:GND", "esp:GND.1", "black", [] ],
+    [ "gas1:AOUT", "esp:35", "purple", [] ],
+    [ "gas1:DOUT", "esp:14", "blue", [] ],
+
+    [ "pir1:VCC", "esp:3V3", "red", [] ],
+    [ "pir1:GND", "esp:GND.1", "black", [] ],
+    [ "pir1:OUT", "esp:27", "yellow", [] ],
+
+    [ "esp:26", "led_ac:A",      "blue",   [] ],
+    [ "led_ac:K",      "esp:GND.1", "black",  [] ],
+
+    [ "esp:25", "led_quintal:A", "yellow", [] ],
+    [ "led_quintal:K", "esp:GND.1", "black",  [] ],
+
+    [ "esp:33", "led_gas:A",     "red",    [] ],
+    [ "led_gas:K",     "esp:GND.1", "black",  [] ],
+
+    [ "esp:32", "led_garagem:A", "white",  [] ],
+    [ "led_garagem:K", "esp:GND.1", "black",  [] ],
+
+    [ "oled:VCC", "esp:3V3",   "red",    [] ],
+    [ "oled:GND", "esp:GND.1", "black",  [] ],
+    [ "oled:SDA", "esp:21",    "blue",   [] ],
+    [ "oled:SCL", "esp:22",    "yellow", [] ]
+  ],
+  "dependencies": {}
+}
